@@ -15,10 +15,6 @@ struct ContentView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    // MARK: Title
-                    Text("Overview")
-                        .font(.title2)
-                        .bold()
                     
                     // MARK: Transaction List
                     RecentTransactionList()
@@ -27,7 +23,6 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity)
             }
             .background(Color.customBackground)
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 // MARK: Notification Icon
                 ToolbarItem {
@@ -36,6 +31,7 @@ struct ContentView: View {
                         .foregroundStyle(Color.customIcon, .primary)
                 }
             }
+            .navigationTitle("Overview")
         }
         .refreshable {
             // REFRESH

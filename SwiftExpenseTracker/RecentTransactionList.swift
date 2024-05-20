@@ -38,7 +38,10 @@ struct RecentTransactionList: View {
                     .padding()
             } else {
                 ForEach(Array(transactionsListVM.transactions.prefix(5).enumerated()), id: \.element) { index, transaction in
-                    TransactionRow(data: transaction)
+                    NavigationLink(destination: TransactionDetail(data: transaction)) {
+                        TransactionRow(data: transaction, showChevron: true)
+                            .foregroundStyle(Color(.label))
+                    }
                     
                     if index < transactionsListVM.transactions.prefix(5).count - 1 {
                         Divider()

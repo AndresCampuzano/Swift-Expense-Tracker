@@ -18,7 +18,9 @@ struct TransactionList: View {
                     Section {
                         // MARK: Transaction List
                         ForEach(transactions) { transaction in
-                            TransactionRow(data: transaction)
+                            NavigationLink(destination: TransactionDetail(data: transaction)) {
+                                TransactionRow(data: transaction)
+                            }
                         }
                     } header: {
                         // MARK: Transaction Month
@@ -31,7 +33,6 @@ struct TransactionList: View {
             
         }
         .navigationTitle("Transactions")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

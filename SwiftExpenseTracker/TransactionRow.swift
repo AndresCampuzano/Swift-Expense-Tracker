@@ -10,8 +10,10 @@ import SwiftUIFontIcon
 
 struct TransactionRow: View {
     var data: Transaction
+    var showChevron: Bool = false // enabled in preview
+    
     var body: some View {
-        HStack(spacing: 20) {
+        HStack() {
             // MARK: Transaction Amount
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(Color.customIcon.opacity(0.3))
@@ -21,6 +23,7 @@ struct TransactionRow: View {
                 }
             
             VStack(alignment: .leading, spacing: 6) {
+                // MARK: Transaction Merchant
                 Text(data.merchant)
                     .font(.subheadline)
                     .bold()
@@ -37,6 +40,7 @@ struct TransactionRow: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
+            .padding([.leading], 8)
             
             Spacer()
             
@@ -45,11 +49,17 @@ struct TransactionRow: View {
                 .bold()
                 .foregroundStyle(data.type == TransactionType.credit.rawValue ? Color.customText : .primary)
             
+            // MARK: Chevron Forward
+            if showChevron {
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.gray)
+            }
+            
         }
         .padding([.top, .bottom], 8)
     }
 }
 
 #Preview {
-    TransactionRow(data: transactionPreviewData)
+    TransactionRow(data: transactionPreviewData, showChevron: true)
 }

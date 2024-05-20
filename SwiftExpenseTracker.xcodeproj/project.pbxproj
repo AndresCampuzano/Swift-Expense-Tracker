@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F14CB95C2BFB8D64001CBEF9 /* TransactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14CB95B2BFB8D64001CBEF9 /* TransactionDetail.swift */; };
 		F199D7E92BF8D58D001759EA /* SwiftExpenseTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F199D7E82BF8D58D001759EA /* SwiftExpenseTrackerApp.swift */; };
 		F199D7EB2BF8D58D001759EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F199D7EA2BF8D58D001759EA /* ContentView.swift */; };
 		F199D7ED2BF8D58F001759EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F199D7EC2BF8D58F001759EA /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F14CB95B2BFB8D64001CBEF9 /* TransactionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetail.swift; sourceTree = "<group>"; };
 		F199D7E52BF8D58D001759EA /* SwiftExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F199D7E82BF8D58D001759EA /* SwiftExpenseTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExpenseTrackerApp.swift; sourceTree = "<group>"; };
 		F199D7EA2BF8D58D001759EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				F199D7EA2BF8D58D001759EA /* ContentView.swift */,
 				F19B0F8C2BF950EE00315E9E /* RecentTransactionList.swift */,
 				F199D7FC2BF8F199001759EA /* TransactionRow.swift */,
+				F14CB95B2BFB8D64001CBEF9 /* TransactionDetail.swift */,
 				F199D8012BF913ED001759EA /* TransactionListViewModel.swift */,
 				F1D42A202BFAC47A00BC245F /* TransactionList.swift */,
 				F199D7F82BF8DA72001759EA /* TransactionModel.swift */,
@@ -179,6 +182,7 @@
 				F199D7F72BF8D747001759EA /* Extensions.swift in Sources */,
 				F199D8022BF913ED001759EA /* TransactionListViewModel.swift in Sources */,
 				F199D7E92BF8D58D001759EA /* SwiftExpenseTrackerApp.swift in Sources */,
+				F14CB95C2BFB8D64001CBEF9 /* TransactionDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

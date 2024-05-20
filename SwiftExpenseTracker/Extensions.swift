@@ -17,7 +17,6 @@ extension Color {
 
 extension DateFormatter {
     static let allNumericUSA: DateFormatter = {
-        print("INITIALIZING DateFormatter")
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
         
