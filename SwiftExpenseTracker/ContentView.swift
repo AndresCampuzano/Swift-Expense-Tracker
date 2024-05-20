@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    // This is just for the refresh trigger
+    @EnvironmentObject var transactionsListVM: TransactionListViewModel
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -33,6 +36,10 @@ struct ContentView: View {
                         .foregroundStyle(Color.customIcon, .primary)
                 }
             }
+        }
+        .refreshable {
+            // REFRESH
+            transactionsListVM.refreshTransactions()
         }
     }
 }

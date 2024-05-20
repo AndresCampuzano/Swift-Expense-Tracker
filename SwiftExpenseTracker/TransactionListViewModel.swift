@@ -67,4 +67,8 @@ final class TransactionListViewModel: ObservableObject {
         
         return groupedTransactions
     }
+    
+    func refreshTransactions() {
+        getTransactions()
+    }
 }
