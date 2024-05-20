@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecentTransactionList: View {
     @EnvironmentObject var transactionsListVM: TransactionListViewModel
+    
     var body: some View {
         VStack {
             HStack {
@@ -32,11 +33,16 @@ struct RecentTransactionList: View {
             .padding(.top)
             
             // MARK: Recent Transaction List
-            ForEach(Array(transactionsListVM.transactions.prefix(5).enumerated()), id: \.element) { index, transaction in
-                TransactionRow(data: transaction)
-                
-                if index < transactionsListVM.transactions.prefix(5).count - 1 {
-                    Divider()
+            if transactionsListVM.isLoading {
+                ProgressView()
+                    .padding()
+            } else {
+                ForEach(Array(transactionsListVM.transactions.prefix(5).enumerated()), id: \.element) { index, transaction in
+                    TransactionRow(data: transaction)
+                    
+                    if index < transactionsListVM.transactions.prefix(5).count - 1 {
+                        Divider()
+                    }
                 }
             }
         }

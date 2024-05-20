@@ -7,10 +7,13 @@
 
 import Foundation
 import Combine
+import Collections
 
-typealias TransactionGroup = [String: [Transaction]]
+typealias TransactionGroup = OrderedDictionary<String, [Transaction]>
+
 final class TransactionListViewModel: ObservableObject {
     @Published var transactions: [Transaction] = []
+    @Published var isLoading: Bool = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -24,6 +27,8 @@ final class TransactionListViewModel: ObservableObject {
             return
         }
         
+        isLoading = true
+        
         URLSession.shared.dataTaskPublisher(for: url)
             .tryMap { (data: Data, response: URLResponse) -> Data in
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
@@ -35,13 +40,15 @@ final class TransactionListViewModel: ObservableObject {
             }
             .decode(type: [Transaction].self, decoder: JSONDecoder())
             .receive(on: DispatchSerialQueue.main) // Changed from DispathQueue to DispatchSerialQueue
-            .sink { completion in
+            .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
                     print("Error fetching transactions ", error.localizedDescription)
                 case .finished:
                     print("Finished fecthing transactions")
                 }
+                
+                self?.isLoading = false
                 
             } receiveValue: { [weak self] result in
                 self?.transactions = result
