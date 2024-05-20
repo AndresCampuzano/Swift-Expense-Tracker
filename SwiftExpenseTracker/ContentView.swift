@@ -10,17 +10,15 @@ import SwiftUI
 struct ContentView: View {
     // This is just for the refresh trigger
     @EnvironmentObject var transactionsListVM: TransactionListViewModel
-
+    
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
-                    
+                VStack( spacing: 24) {
                     // MARK: Transaction List
                     RecentTransactionList()
                 }
                 .padding()
-                .frame(maxWidth: .infinity)
             }
             .background(Color.customBackground)
             .toolbar {
